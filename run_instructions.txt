@@ -1,0 +1,189 @@
+########################################################################
+########################################################################
+########################################################################
+
+cd melodic_ws/
+./run_docker_container.sh
+
+
+########################################################################
+########################################################################
+########################################################################
+
+docker ps
+
+
+########################################################################
+########################################################################
+########################################################################
+
+docker exec -it ID bash
+cd src/project_ws/catkin_ws/
+source devel/setup.bash 
+roscore
+
+
+########################################################################
+########################################################################
+########################################################################
+
+For apm:
+
+cd src/project_ws/apm/
+source devel/setup.bash
+rosrun aidernd_gui aide_runtime_manager_dialog.py
+
+
+
+########################################################################
+########################################################################
+########################################################################
+
+For KITTI navigation:
+
+apt-get install -y autoconf automake libtool
+apt-get install -y autoconf
+apt-get install -y ros-melodic-tf2-sensor-msgs
+sudo apt install -y libgoogle-glog-dev 
+catkin build -DCMAKE_BUILD_TYPE=Release
+roslaunch selection_criteria KITTI_localization_sc_hdl.launch dataset:=$(rosparam get /dataset) sequence:=$(rosparam get /sequence) filter_name:=$(rosparam get /filter_name)
+
+
+########################################################################
+########################################################################
+########################################################################
+
+For KITTI mapping:
+
+apt-get install -y autoconf automake libtool
+apt-get install -y autoconf
+apt-get install -y ros-melodic-tf2-sensor-msgs
+sudo apt install -y libgoogle-glog-dev 
+catkin build -DCMAKE_BUILD_TYPE=Release
+roslaunch selection_criteria KITTI_graph_slam_sc_hdl.launch dataset:=$(rosparam get /dataset) sequence:=$(rosparam get /sequence) filter_name:=$(rosparam get /filter_name)
+
+
+
+
+########################################################################
+########################################################################
+########################################################################
+
+Running evaluations for KITTI localization:
+
+In Different Tabs:
+
+
+cd src/data/KITTI/06/results/localization
+evo_traj bag KITTI_06.bag /odom_transformed --save_as_tum
+
+
+cd src/data/KITTI/06/results/localization
+./plot_errors_and_save_statistics.py
+
+
+cd src/data/KITTI/06/results/localization
+./plot_speed_statistics.py
+
+
+cd src/data/KITTI/06/results/localization
+cd statistics/
+./plot_statistics.py 
+
+
+Running evaluations for KITTI mapping:
+
+In Different Tabs:
+
+
+cd src/data/KITTI/06/results/graph_slam
+evo_traj bag KITTI_06.bag /odom_transformed --save_as_tum
+
+
+cd src/data/KITTI/06/results/graph_slam
+rosrun pcl_ros pointcloud_to_pcd input:=/hdl_graph_slam/map_points 
+
+
+cd src/data/KITTI/06/results/graph_slam
+./plot_errors_and_save_statistics.py
+
+
+cd src/data/KITTI/06/results/graph_slam
+./plot_speed_statistics.py
+
+
+cd src/data/KITTI/06/results/graph_slam
+cd statistics/
+./plot_statistics.py
+
+
+
+########################################################################
+########################################################################
+########################################################################
+
+For AID navigation:
+
+apt-get install -y autoconf automake libtool
+apt-get install -y autoconf
+apt-get install -y ros-melodic-tf2-sensor-msgs
+sudo apt install -y libgoogle-glog-dev 
+catkin build -DCMAKE_BUILD_TYPE=Release
+roslaunch selection_criteria robosense_graph_slam_sc_hdl.launch dataset:=$(rosparam get /dataset) sequence:=$(rosparam get /sequence) filter_name:=$(rosparam get /filter_name)
+
+
+########################################################################
+########################################################################
+########################################################################
+
+For AID mapping:
+
+apt-get install -y autoconf automake libtool
+apt-get install -y autoconf
+apt-get install -y ros-melodic-tf2-sensor-msgs
+sudo apt install -y libgoogle-glog-dev 
+catkin build -DCMAKE_BUILD_TYPE=Release
+roslaunch selection_criteria robosense_graph_slam_sc_hdl.launch dataset:=$(rosparam get /dataset) sequence:=$(rosparam get /sequence) filter_name:=$(rosparam get /filter_name)
+
+
+
+
+
+
+########################################################################
+########################################################################
+########################################################################
+########################################################################
+
+
+
+Running evaluations for AID localization:
+
+In Different Tabs:
+
+
+cd src/data/AID/20220622/results/localization
+evo_traj bag AID_20220622.bag /odom_transformed --save_as_tum
+
+
+cd src/data/AID/20220622/results/localization
+./plot_speed_statistics.py
+
+
+
+Running evaluations for AID mapping:
+
+In Different Tabs:
+
+
+cd src/data/AID/20220622/results/graph_slam
+evo_traj bag AID_20220622.bag /odom_transformed --save_as_tum
+
+
+cd src/data/AID/20220622/results/graph_slam
+rosrun pcl_ros pointcloud_to_pcd input:=/hdl_graph_slam/map_points 
+
+
+cd src/data/AID/20220622/results/graph_slam
+./plot_speed_statistics.py
+

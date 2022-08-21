@@ -79,7 +79,11 @@ RUN apt-get update \
     && apt-get install -y ros-$ROS_DISTRO-gps-umd \
     && apt-get install -y software-properties-common \
     && apt-get install -y gnupg \
-    && apt-get install -y ros-$ROS_DISTRO-tablet-socket-msgs
+    && apt-get install -y ros-$ROS_DISTRO-tablet-socket-msgs \
+    && apt-get install -y ros-$ROS_DISTRO-tf2-sensor-msgs \
+    && apt-get install -y autoconf automake libtool \
+    && apt-get install -y autoconf \
+    && apt-get install -y ros-melodic-tf2-sensor-msgs
 
 
 RUN apt update \
@@ -91,10 +95,12 @@ RUN apt update \
     && apt install -y ros-$ROS_DISTRO-delphi-esr-msgs \
     && apt install -y ros-$ROS_DISTRO-derived-object-msgs \
     && apt install -y wget \
+    && apt install -y libgoogle-glog-dev \
     && apt install -y ros-$ROS_DISTRO-unique-id \
     && apt install -y ros-$ROS_DISTRO-ros-type-introspection \
     && apt install -y ros-$ROS_DISTRO-velodyne \
     && rm -rf /var/lib/apt/lists/*
+
  
  
 RUN wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | apt-key add -
@@ -120,11 +126,11 @@ RUN apt update
 
 RUN apt install libbson-1.0
 
-RUN apt install ros-melodic-ackermann-msgs
+RUN apt install ros-$ROS_DISTRO-ackermann-msgs
 
-RUN apt install ros-melodic-can-msgs
+RUN apt install ros-$ROS_DISTRO-can-msgs
 
-RUN apt install -y ros-melodic-grid-map-ros
+RUN apt install -y ros-$ROS_DISTRO-grid-map-ros
 
 RUN pip install kitti2bag
 
@@ -153,3 +159,4 @@ RUN cd flycapture2-2.13.3.31-amd64
 RUN cd /
 
 RUN apt-get -y install unzip
+
