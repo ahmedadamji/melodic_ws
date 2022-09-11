@@ -1,4 +1,4 @@
-**This repository is modified from a [skeleton provided](https://github.com/pravsels/melodic_ws) by [Praveen Selvaraj](https://github.com/pravsels), which was created by them for use by the students of the MSc Robotics and Computation 2021/22 cohort at UCL, for working on assignments requiring libraries and tools made available by this workspace.**  
+**This repository is modified from a [skeleton](https://github.com/pravsels/melodic_ws) provided by [Praveen Selvaraj](https://github.com/pravsels), which was created by them for use by the students of the MSc Robotics and Computation 2021/22 cohort at UCL, for working on assignments requiring libraries and tools made available by this workspace.**  
 
 **It has been modified to act as a workspace for the [selection_criteria](https://github.com/ahmedadamji/selection_criteria) package, created as part of the moderator's MSc Dissertation on the Study of the Effect of Selection Criteria of Point Features on SLAM Performance, at UCL.**  
 
