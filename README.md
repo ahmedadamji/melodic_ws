@@ -1,4 +1,4 @@
-
+**This repository is modified from a [skeleton provided](https://github.com/pravsels/melodic_ws) by [Praveen Selvaraj](https://github.com/pravsels), which was created by them for use by the students of the MSc Robotics and Computation 2021/22 cohort**
 
 To build the docker image:
 ```bash
