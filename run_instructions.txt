@@ -41,10 +41,6 @@ rosrun aidernd_gui aide_runtime_manager_dialog.py
 
 For KITTI navigation:
 
-apt-get install -y autoconf automake libtool
-apt-get install -y autoconf
-apt-get install -y ros-melodic-tf2-sensor-msgs
-sudo apt install -y libgoogle-glog-dev 
 catkin build -DCMAKE_BUILD_TYPE=Release
 roslaunch selection_criteria KITTI_localization_sc_hdl.launch dataset:=$(rosparam get /dataset) sequence:=$(rosparam get /sequence) filter_name:=$(rosparam get /filter_name)
 
@@ -55,10 +51,6 @@ roslaunch selection_criteria KITTI_localization_sc_hdl.launch dataset:=$(rospara
 
 For KITTI mapping:
 
-apt-get install -y autoconf automake libtool
-apt-get install -y autoconf
-apt-get install -y ros-melodic-tf2-sensor-msgs
-sudo apt install -y libgoogle-glog-dev 
 catkin build -DCMAKE_BUILD_TYPE=Release
 roslaunch selection_criteria KITTI_graph_slam_sc_hdl.launch dataset:=$(rosparam get /dataset) sequence:=$(rosparam get /sequence) filter_name:=$(rosparam get /filter_name)
 
@@ -124,10 +116,6 @@ cd statistics/
 
 For AID navigation:
 
-apt-get install -y autoconf automake libtool
-apt-get install -y autoconf
-apt-get install -y ros-melodic-tf2-sensor-msgs
-sudo apt install -y libgoogle-glog-dev 
 catkin build -DCMAKE_BUILD_TYPE=Release
 roslaunch selection_criteria robosense_graph_slam_sc_hdl.launch dataset:=$(rosparam get /dataset) sequence:=$(rosparam get /sequence) filter_name:=$(rosparam get /filter_name)
 
@@ -138,10 +126,6 @@ roslaunch selection_criteria robosense_graph_slam_sc_hdl.launch dataset:=$(rospa
 
 For AID mapping:
 
-apt-get install -y autoconf automake libtool
-apt-get install -y autoconf
-apt-get install -y ros-melodic-tf2-sensor-msgs
-sudo apt install -y libgoogle-glog-dev 
 catkin build -DCMAKE_BUILD_TYPE=Release
 roslaunch selection_criteria robosense_graph_slam_sc_hdl.launch dataset:=$(rosparam get /dataset) sequence:=$(rosparam get /sequence) filter_name:=$(rosparam get /filter_name)
 
