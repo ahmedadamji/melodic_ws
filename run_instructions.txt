@@ -17,8 +17,8 @@ docker ps
 ########################################################################
 ########################################################################
 
-docker exec -it ID bash
-cd src/project_ws/catkin_ws/
+docker exec -it d084f3a4a939 bash
+cd src/aid_ws/catkin_ws/
 source devel/setup.bash 
 roscore
 
@@ -29,7 +29,7 @@ roscore
 
 For apm:
 
-cd src/project_ws/apm/
+cd src/aid_ws/apm/
 source devel/setup.bash
 rosrun aidernd_gui aide_runtime_manager_dialog.py
 
